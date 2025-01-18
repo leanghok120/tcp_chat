@@ -2,6 +2,8 @@
 
 This is a **very** simple chat app built with tcp sockets in C. You can use this as a learning resource or as a reference!
 
+(132 lines of code in total)
+
 ![usage](./screenshot.png)
 
 ## How to compile
