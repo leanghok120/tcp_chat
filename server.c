@@ -50,11 +50,16 @@ int main() {
       printf("Client disconnected\n");
       break;
     }
+    // Null-terminate the recieved message
     buf[bytes_rec] = '\0';
     printf("Client: %s\n", buf);
 
     printf("Server: ");
     fgets(buf, sizeof(buf), stdin);
+    if (strncmp(buf, "exit", 4) == 0) {
+      printf("Exiting...\n");
+      break;
+    }
     send(cfd, buf, strlen(buf), 0);
   }
 

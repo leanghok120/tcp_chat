@@ -40,6 +40,10 @@ int main() {
   while (1) {
     printf("Client: ");
     fgets(buf, sizeof(buf), stdin);
+    if (strncmp(buf, "exit", 4) == 0) {
+      printf("Exiting...\n");
+      break;
+    }
     send(sockfd, buf, strlen(buf), 0);
 
     int bytes_rec = recv(sockfd, buf, sizeof(buf) - 1, 0);
@@ -47,6 +51,7 @@ int main() {
       printf("Server disconnected\n");
       break;
     }
+    // Null-terminate the recieved message
     buf[bytes_rec] = '\0';
     printf("Server: %s\n", buf);
   }
