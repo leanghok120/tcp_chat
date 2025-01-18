@@ -5,8 +5,11 @@
 #include <sys/types.h>
 #include <unistd.h>
 
+#define PORT 12345
+#define BUF_SIZE 256
+
 int main() {
-  char buf[256];
+  char buf[BUF_SIZE];
 
   // Create a socket
   int sockfd = socket(AF_INET, SOCK_STREAM, 0);
@@ -18,7 +21,7 @@ int main() {
   // Bind the socket
   struct sockaddr_in server_address;
   server_address.sin_family = AF_INET;
-  server_address.sin_port = htons(12345);
+  server_address.sin_port = htons(PORT);
   server_address.sin_addr.s_addr = INADDR_ANY;
   if (bind(sockfd, (struct sockaddr *)&server_address, sizeof(server_address)) <
       0) {
