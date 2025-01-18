@@ -52,7 +52,7 @@ int main() {
     }
     // Null-terminate the recieved message
     buf[bytes_rec] = '\0';
-    printf("Client: %s\n", buf);
+    printf("Client: %s", buf);
 
     printf("Server: ");
     fgets(buf, sizeof(buf), stdin);

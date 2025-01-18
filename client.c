@@ -53,7 +53,7 @@ int main() {
     }
     // Null-terminate the recieved message
     buf[bytes_rec] = '\0';
-    printf("Server: %s\n", buf);
+    printf("Server: %s", buf);
   }
 
   close(sockfd);
